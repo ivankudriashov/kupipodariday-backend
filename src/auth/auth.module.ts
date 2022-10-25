@@ -22,6 +22,7 @@ import { Wish } from 'src/wishes/entities/wish.entity';
       useFactory: async (configService: ConfigService) => {
         return {
           secret: configService.get<string>('JWT_KEY'),
+          signOptions: { expiresIn: '1h' },
         };
       },
       inject: [ConfigService],

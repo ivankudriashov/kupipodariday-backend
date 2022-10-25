@@ -29,6 +29,11 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @Get('my/wishes')
+  findMyWishes(@Req() req) {
+    return this.usersService.findMyWishes(req.user.id);
+  }
+
   @Get('me')
   findMe(@Req() req) {
     return this.usersService.findOne(req.user.id);

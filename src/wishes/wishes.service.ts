@@ -18,10 +18,10 @@ export class WishesService {
 
   async create(userId: number, wish: CreateWishDto): Promise<Wish> {
     const user = await this.userRepository.findOneBy({ id: userId });
-    const newWish = {
+    const newWish = await this.wishesRepository.create({
       ...wish,
       owner: user,
-    };
+    });
 
     return this.wishesRepository.save(newWish);
   }
@@ -38,7 +38,7 @@ export class WishesService {
     const wish = await this.wishesRepository.find({
       relations: ['owner'],
       order: { id: 'desc' },
-      take: 1,
+      take: 30,
     });
     return wish;
   }
@@ -47,7 +47,7 @@ export class WishesService {
     const wish = await this.wishesRepository.find({
       relations: ['owner'],
       order: { copied: 'desc' },
-      take: 1,
+      take: 10,
     });
     return wish;
   }

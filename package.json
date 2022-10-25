@@ -1,8 +1,8 @@
 {
   "name": "kupipodariday-backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Бэкэнд часть проекта КупиПодариДай",
+  "author": "Ivan Kudriashov",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
