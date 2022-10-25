@@ -54,6 +54,16 @@ export class UsersService {
     return user.wishes;
   }
 
+  async findMyWishes(id: number): Promise<UserWishesDto[]> {
+    const user = await this.userRepository.findOne({
+      where: { id: id },
+      select: ['wishes'],
+      relations: ['wishes'],
+    });
+
+    return user.wishes;
+  }
+
   async update(id: number, user: UpdateUserDto) {
     const { password } = user;
     if (password) {
