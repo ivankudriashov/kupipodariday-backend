@@ -29,7 +29,7 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get('my/wishes')
+  @Get('me/wishes')
   findMyWishes(@Req() req) {
     return this.usersService.findMyWishes(req.user.id);
   }
